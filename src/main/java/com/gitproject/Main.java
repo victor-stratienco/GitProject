@@ -12,7 +12,7 @@ import org.hibernate.service.ServiceRegistryBuilder;
 import java.util.Map;
 
 /**
- * @author Galya
+ * @author test
  * @created 10/19/13
  */
 public class Main {
