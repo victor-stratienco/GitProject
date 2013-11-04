@@ -3,9 +3,9 @@
   <component name="EclipseCodeFormatter">
     <option name="defaultSettings" value="true" />
     <option name="formatter" value="ECLIPSE" />
-    <option name="id" value="1358748532680" />
+    <option name="id" value="1376055611570" />
     <option name="name" value="default" />
-    <option name="pathToConfigFileJava" value="$PROJECT_DIR$/../../SolveIT/Eclipse-Indigo/EclipseWorkspace/_format_settings_/org.eclipse.jdt.core.prefs" />
+    <option name="pathToConfigFileJava" value="$PROJECT_DIR$/../_format_settings_/_eclipse_lims_/org.eclipse.jdt.core.prefs" />
   </component>
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
