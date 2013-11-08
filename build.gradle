@@ -18,13 +18,13 @@ String versionNumber = "[" + buildType + ":" + branch + "]-" + majorVersion + ".
 String debugBuild = hasProperty('debugBuild') ? debugBuild : 'true'
 
 String seamVersion = '2.3.1.Final'
-String richFacesVersion = '4.3.0.Final'
-String primeFacesVersion = '3.4.2'
-String droolsVersion = '5.3.3.Final'
-String luceneVersion = '3.6.2'
-String hibernateVersion = '4.1.6.Final'
-String hibernateSearchVersion = '4.2.0.Final'
-String hibernateValidatorVersion = '4.2.0.Final'
+//String richFacesVersion = '4.3.0.Final'
+//String primeFacesVersion = '3.4.2'
+//String droolsVersion = '5.3.3.Final'
+//String luceneVersion = '3.6.2'
+//String hibernateVersion = '4.1.6.Final'
+//String hibernateSearchVersion = '4.2.0.Final'
+//String hibernateValidatorVersion = '4.2.0.Final'
 
 eclipse.classpath.defaultOutputDir = file('build/eclipseClasses')
 
@@ -50,8 +50,8 @@ task wrapper(type: Wrapper) {
 //Copy the persistence file for this build type into the resources directory
 task copyPersistence(type: Copy) {
     from ('src/main/config/META-INF/') {
-        include 'persistence-' + buildType + '.xml'
-        rename 'persistence-.*.xml', 'persistence.xml'
+        //include 'persistence-' + buildType + '.xml'
+        //rename 'persistence-.*.xml', 'persistence.xml'
     }
     into processResources.destinationDir.toString() + '/META-INF/'
 }
@@ -232,25 +232,25 @@ dependencies {
     compile 'org.jboss.seam:jboss-seam-mail:'+seamVersion
     compile 'org.jboss.seam:jboss-seam-debug:'+seamVersion
 
-    //Richfaces
-    compile 'org.richfaces.ui:richfaces-components-ui:'+richFacesVersion
-    compile 'org.richfaces.core:richfaces-core-impl:'+richFacesVersion
-    compile 'org.richfaces.sandbox.ui.schedule:schedule-ui:'+'4.3.0-SNAPSHOT'//+richFacesVersion
-
-    //Primefaces
-    compile 'org.primefaces:primefaces:'+primeFacesVersion
-
-    //Hibernate
-    compile 'org.hibernate:hibernate-core:'+hibernateVersion
-    compile 'org.hibernate:hibernate-entitymanager:'+hibernateVersion
-    compile 'org.hibernate:hibernate-search:'+hibernateSearchVersion
-    compile 'org.hibernate:hibernate-validator:'+hibernateValidatorVersion
-    compile 'javax.validation:validation-api:1.0.0.GA'
-
-    //Lucene
-    compile 'org.apache.lucene:lucene-core:'+luceneVersion
-    compile 'org.apache.lucene:lucene-queries:'+luceneVersion
-    compile 'org.apache.lucene:lucene-highlighter:'+luceneVersion
+//    //Richfaces
+//    compile 'org.richfaces.ui:richfaces-components-ui:'+richFacesVersion
+//    compile 'org.richfaces.core:richfaces-core-impl:'+richFacesVersion
+//    compile 'org.richfaces.sandbox.ui.schedule:schedule-ui:'+'4.3.0-SNAPSHOT'//+richFacesVersion
+//
+//    //Primefaces
+//    compile 'org.primefaces:primefaces:'+primeFacesVersion
+//
+//    //Hibernate
+//    compile 'org.hibernate:hibernate-core:'+hibernateVersion
+//    compile 'org.hibernate:hibernate-entitymanager:'+hibernateVersion
+//    compile 'org.hibernate:hibernate-search:'+hibernateSearchVersion
+//    compile 'org.hibernate:hibernate-validator:'+hibernateValidatorVersion
+//    compile 'javax.validation:validation-api:1.0.0.GA'
+//
+//    //Lucene
+//    compile 'org.apache.lucene:lucene-core:'+luceneVersion
+//    compile 'org.apache.lucene:lucene-queries:'+luceneVersion
+//    compile 'org.apache.lucene:lucene-highlighter:'+luceneVersion
 
     //JSF	- refer to jboss-as-parent.pom
     //compile 'org.jboss.spec.javax.faces:jboss-jsf-api_2.0_spec:1.0.0.Final'
@@ -259,44 +259,44 @@ dependencies {
     compile 'org.jboss.spec.javax.ejb:jboss-ejb-api_3.1_spec:1.0.2.Final'
     compile 'com.sun.faces:jsf-impl:2.1.11-jbossorg-3'
 
-    //Drools	- from where?
-    runtime 'org.drools:drools-api:5.1.1'
-    runtime 'org.drools:drools-compiler:'+droolsVersion
-    runtime 'org.drools:drools-core:'+droolsVersion
-
-    //Misc
-    compile 'jfree:jfreechart:1.0.13'
-    compile 'org.apache.pdfbox:pdfbox:1.7.1'
-    compile 'org.mnode.ical4j:ical4j:1.0.4'
-    compile 'commons-collections:commons-collections:3.2.1'
-    compile 'javax.mail:mail:1.4.7'
-    compile 'javax.activation:activation:1.1.1'
-    runtime 'org.antlr:antlr-runtime:3.1.3'
-    runtime 'org.mvel:mvel2:2.0.16'
-
-    //for instrumentation
-    providedCompile 'org.slf4j:slf4j-log4j12:1.6.4'
-
-    providedRuntime 'javax.el:el-api:1.0'
-    providedRuntime 'antlr:antlr:2.7.7'
-
-    //testing
-    testCompile 'org.testng:testng:6.8'
-    testCompile 'org.slf4j:slf4j-log4j12:1.6.4'
-    testCompile 'org.easytesting:fest-assert-core:2.0M8'
-    testCompile 'org.jboss.as:jboss-as-arquillian-container-managed:7.1.3.Final'
-    testCompile 'org.jboss.arquillian.testng:arquillian-testng-container:1.0.3.Final'
-    testCompile 'org.jboss.arquillian.protocol:arquillian-protocol-servlet:1.0.3.Final'
-    testCompile 'org.jboss.arquillian.extension:arquillian-seam2:1.0.0.Alpha2'
-    testCompile 'org.jacoco:org.jacoco.core:0.6.0.201210061924'
-    testCompile ('org.jboss.arquillian.extension:arquillian-persistence-impl:1.0.0.Alpha5')
-            { exclude module: "slf4j-jdk14" }
-
-    testRuntime 'org.jboss.arquillian.extension:arquillian-jacoco:1.0.0.Alpha5'
-    testCompile 'org.jboss.arquillian.extension:arquillian-warp-jsf:1.0.0.Alpha2'
-    testCompile 'org.jboss.arquillian.graphene:arquillian-graphene:2.0.0.Alpha3'
-
-    testJavaAgent 'org.jacoco:org.jacoco.agent:0.6.0.201210061924:runtime'
+//    //Drools	- from where?
+//    runtime 'org.drools:drools-api:5.1.1'
+//    runtime 'org.drools:drools-compiler:'+droolsVersion
+//    runtime 'org.drools:drools-core:'+droolsVersion
+//
+//    //Misc
+//    compile 'jfree:jfreechart:1.0.13'
+//    compile 'org.apache.pdfbox:pdfbox:1.7.1'
+//    compile 'org.mnode.ical4j:ical4j:1.0.4'
+//    compile 'commons-collections:commons-collections:3.2.1'
+//    compile 'javax.mail:mail:1.4.7'
+//    compile 'javax.activation:activation:1.1.1'
+//    runtime 'org.antlr:antlr-runtime:3.1.3'
+//    runtime 'org.mvel:mvel2:2.0.16'
+//
+//    //for instrumentation
+//    providedCompile 'org.slf4j:slf4j-log4j12:1.6.4'
+//
+//    providedRuntime 'javax.el:el-api:1.0'
+//    providedRuntime 'antlr:antlr:2.7.7'
+//
+//    //testing
+//    testCompile 'org.testng:testng:6.8'
+//    testCompile 'org.slf4j:slf4j-log4j12:1.6.4'
+//    testCompile 'org.easytesting:fest-assert-core:2.0M8'
+//    testCompile 'org.jboss.as:jboss-as-arquillian-container-managed:7.1.3.Final'
+//    testCompile 'org.jboss.arquillian.testng:arquillian-testng-container:1.0.3.Final'
+//    testCompile 'org.jboss.arquillian.protocol:arquillian-protocol-servlet:1.0.3.Final'
+//    testCompile 'org.jboss.arquillian.extension:arquillian-seam2:1.0.0.Alpha2'
+//    testCompile 'org.jacoco:org.jacoco.core:0.6.0.201210061924'
+//    testCompile ('org.jboss.arquillian.extension:arquillian-persistence-impl:1.0.0.Alpha5')
+//            { exclude module: "slf4j-jdk14" }
+//
+//    testRuntime 'org.jboss.arquillian.extension:arquillian-jacoco:1.0.0.Alpha5'
+//    testCompile 'org.jboss.arquillian.extension:arquillian-warp-jsf:1.0.0.Alpha2'
+//    testCompile 'org.jboss.arquillian.graphene:arquillian-graphene:2.0.0.Alpha3'
+//
+//    testJavaAgent 'org.jacoco:org.jacoco.agent:0.6.0.201210061924:runtime'
 }
 
 test {
