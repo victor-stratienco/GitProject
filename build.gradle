@@ -4,7 +4,18 @@ apply plugin: 'sonar'
 apply plugin: 'maven'
 
 apply from: 'checkVersions.gradle'
-//import org.apache.tools.ant.filters.ReplaceTokens
+import org.apache.tools.ant.filters.ReplaceTokens
+
+String buildType = hasProperty('buildType') ? buildType : 'dev'
+String deploymentDir = '/usr/local/jboss7/standalone/deployments'
+String debug = (buildType == 'prod' ? 'false' : 'true')
+String hostName = hasProperty('hostName') ? hostName : 'HOST_NAME'
+String branch = hasProperty('branch') ? branch : 'BRANCH_NAME'
+String majorVersion = hasProperty('majorVersion') ? majorVersion : 'MAJOR_VERSION'
+String minorVersion = hasProperty('minorVersion') ? minorVersion : 'MINOR_VERSION'
+String buildNumber = hasProperty('buildNumber') ? buildNumber : 'BUILD_NUMBER'
+String versionNumber = "[" + buildType + ":" + branch + "]-" + majorVersion + "." + minorVersion + "." + buildNumber
+String debugBuild = hasProperty('debugBuild') ? debugBuild : 'true'
 
 String seamVersion = '2.3.1.Final'
 String richFacesVersion = '4.3.0.Final'
@@ -16,6 +27,178 @@ String hibernateSearchVersion = '4.2.0.Final'
 String hibernateValidatorVersion = '4.2.0.Final'
 
 eclipse.classpath.defaultOutputDir = file('build/eclipseClasses')
+
+configurations {
+    testJavaAgent
+}
+
+war {
+    archiveName 'GitProject.war'
+    webInf {
+        from 'src/main/config/WEB-INF/components.xml', 'src/main/config/WEB-INF/web.xml'
+        filter(ReplaceTokens, tokens: [debug: debugBuild])
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.3'
+}
+
+
+/////// Seam-specific War files
+
+//Copy the persistence file for this build type into the resources directory
+task copyPersistence(type: Copy) {
+    from ('src/main/config/META-INF/') {
+        include 'persistence-' + buildType + '.xml'
+        rename 'persistence-.*.xml', 'persistence.xml'
+    }
+    into processResources.destinationDir.toString() + '/META-INF/'
+}
+
+
+//Copy the components file into the resources directory
+task copyComponentsXML(type: Copy) {
+    println "Updating configuration files - debug = " + debugBuild
+
+    from ('src/main/config/') {
+        include 'components.properties'
+    }
+    expand(debug: debugBuild)
+    into processResources.destinationDir.toString()
+}
+
+
+//Copy the components file into the resources directory
+task updateConfigurationXML(type: Copy) {
+    println "Updating configuration files - debug = " + debugBuild
+    println "Moving files to " + processResources.destinationDir.toString()
+
+    from ('src/main/webapp/WEB-INF') {
+        include 'web.xml', 'components.xml'
+    }
+    expand(debug: debugBuild)
+    into "build/output/WEB-INF"
+}
+
+// fill in parameters based on build type
+task updateProperties (type: Copy) {
+    println "Updating properties files - HOSTNAME = " + hostName
+    println "Updating properties files - VERSION_NUMBER = " + versionNumber
+    println "Updating properties files - BRANCH_NAME = " + branch
+    println "Updating properties files - MAJOR_VERSION = " + majorVersion
+    println "Updating properties files - MINOR_VERSION = " + minorVersion
+    println "Updating properties files - BUILD_NUMBER = " + buildNumber
+
+//    from ('src/main/resources/') {
+//        include 'application_en.properties', 'liverebel.xml'
+//    }
+    expand(HOSTNAME: hostName, VERSION_NUMBER: versionNumber, BRANCH_NAME: branch, MAJOR_VERSION: majorVersion, MINOR_VERSION: minorVersion, BUILD_NUMBER: buildNumber)
+    into processResources.destinationDir.toString()
+}
+
+
+war.dependsOn copyComponentsXML
+war.dependsOn copyPersistence
+war.dependsOn updateProperties
+//war.dependsOn updateConfigurationXML
+
+///////// Explode (deploy locally as an exploded archive)
+
+boolean javaDeployed = false
+
+//Copy the files from the war out into an exploded directory
+task explode(type: Copy, dependsOn: 'war')  {
+    into buildDir.name + '/exploded'
+    with war
+}
+
+task deployExploded(dependsOn: ['copyExplodedOther', 'copyExplodedJava']) {
+    ext.deployFile = new File(deploymentDir + '/GitProject.war.dodeploy')
+    ext.deployedFile = new File(deploymentDir + '/GitProject.war.deployed')
+    //outputs.file deployFile
+}
+deployExploded << {
+    if (javaDeployed) {
+        deployFile.createNewFile()
+        println "Created deployment marker file, Java classes updated."
+    }
+    else if (!deployedFile.exists()) {
+        deployFile.createNewFile()
+        println "Created deployment marker file, not yet deployed."
+    }
+}
+
+//Don't copy Java files if they haven't changed
+task copyExplodedJava(type: Copy, dependsOn: 'explode') {
+    from explode
+    into deploymentDir + "/GitProject.war"
+    include "**/*.class"
+    include "**/*.jar"
+}
+copyExplodedJava << {
+    javaDeployed = true
+}
+
+task copyExplodedOther(type: Copy, dependsOn: 'explode') {
+    from explode
+    into deploymentDir + "/GitProject.war"
+    exclude "**/*.class"
+    exclude "**/*.jar"
+}
+
+
+////////// Deploy (locally, but as a .war)
+
+task deploy(type: Copy, dependsOn: 'war') {
+    from war
+    into deploymentDir
+}
+
+//For AS7, notify the deployment scanner
+task reDeploy {
+    File deployFile = new File(deploymentDir + '/GitProject.war.dodeploy')
+    outputs.file deployFile
+}
+reDeploy << {
+    //this should only redeploy if the classes have changed, not the view files
+    deployFile.createNewFile()
+    println "Created deployment marker file"
+}
+
+task undeploy (type: Delete) {
+    delete deploymentDir + "/GitProject.war.deployed"
+    delete deploymentDir + "/GitProject.war"
+}
+
+
+//////////////// TESTS
+
+task pom << {
+    pom{}.writeTo("${buildDir}/GitProject.pom")
+}
+
+test {
+    useTestNG() {
+        excludeGroups 'warp'
+    }
+}
+
+task integrationTest(type: Test, dependsOn: [pom, testClasses]) {
+    useTestNG() {
+        includeGroups 'warp', 'arquillian'
+    }
+}
+
+tasks.withType(Test) {
+    testReport = true
+}
+
+check.dependsOn integrationTest
+clean.dependsOn undeploy
+test.dependsOn undeploy
+tasks.eclipse.dependsOn pom
+test.dependsOn pom
 
 clean {
     delete "target"
@@ -113,12 +296,12 @@ dependencies {
     testCompile 'org.jboss.arquillian.extension:arquillian-warp-jsf:1.0.0.Alpha2'
     testCompile 'org.jboss.arquillian.graphene:arquillian-graphene:2.0.0.Alpha3'
 
-    //testJavaAgent 'org.jacoco:org.jacoco.agent:0.6.0.201210061924:runtime'
+    testJavaAgent 'org.jacoco:org.jacoco.agent:0.6.0.201210061924:runtime'
 }
 
-//test {
-//    jvmArgs "-javaagent:" + configurations.testJavaAgent.asPath + "=destfile=" + reporting.baseDir + "/coverage/jacoco.exec,excludes=com.steadystate.css.parser.*"
-//}
+test {
+    jvmArgs "-javaagent:" + configurations.testJavaAgent.asPath + "=destfile=" + reporting.baseDir + "/coverage/jacoco.exec,excludes=com.steadystate.css.parser.*"
+}
 
 //http://issues.gradle.org/browse/GRADLE-2592
 plugins.withType(EclipsePlugin) {
