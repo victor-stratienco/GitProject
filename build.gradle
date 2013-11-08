@@ -1,6 +1,6 @@
 apply plugin: 'war'
 apply plugin: 'eclipse'
-apply plugin: 'sonar'
+//apply plugin: 'sonar'
 apply plugin: 'maven'
 
 apply from: 'checkVersions.gradle'
@@ -90,9 +90,9 @@ task updateProperties (type: Copy) {
     println "Updating properties files - MINOR_VERSION = " + minorVersion
     println "Updating properties files - BUILD_NUMBER = " + buildNumber
 
-//    from ('src/main/resources/') {
-//        include 'application_en.properties', 'liverebel.xml'
-//    }
+    //from ('src/main/resources/') {
+        //include 'application_en.properties', 'liverebel.xml'
+    //}
     expand(HOSTNAME: hostName, VERSION_NUMBER: versionNumber, BRANCH_NAME: branch, MAJOR_VERSION: majorVersion, MINOR_VERSION: minorVersion, BUILD_NUMBER: buildNumber)
     into processResources.destinationDir.toString()
 }
@@ -227,9 +227,9 @@ dependencies {
     //Seam
     compile 'org.jboss.seam:jboss-seam:'+seamVersion
     compile 'org.jboss.seam:jboss-seam-ui:'+seamVersion
-    compile 'org.jboss.seam:jboss-seam-pdf:'+seamVersion
-    compile 'org.jboss.seam:jboss-seam-excel:'+seamVersion
-    compile 'org.jboss.seam:jboss-seam-mail:'+seamVersion
+//    compile 'org.jboss.seam:jboss-seam-pdf:'+seamVersion
+//    compile 'org.jboss.seam:jboss-seam-excel:'+seamVersion
+//    compile 'org.jboss.seam:jboss-seam-mail:'+seamVersion
     compile 'org.jboss.seam:jboss-seam-debug:'+seamVersion
 
 //    //Richfaces
