@@ -1,25 +1,25 @@
-#.idea/
+.idea/libraries/
 #GitProject.iml
 
 # ---
 
-#*.class
+*.class
 
 # Package Files #
-#*.jar
-#*.war
-#*.ear
+*.jar
+*.war
+*.ear
 
-#build/
-#dist/
-#exploded-archives/
-#test-build/
-#test-output/
-#CVS
-#classes/
+build/
+dist/
+exploded-archives/
+test-build/
+test-output/
+CVS
+classes/
 
-#.gradle/
-#target/
-#.classpath
+.gradle/
+target/
+.classpath
 
-#*.swp
+*.swp
