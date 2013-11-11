@@ -91,7 +91,7 @@ task updateProperties (type: Copy) {
 //    println "Updating properties files - BUILD_NUMBER = " + buildNumber
 
     from ('src/main/resources/') {
-        include 'application_en.properties', 'liverebel.xml'
+        include 'application_en.properties'
     }
     //expand(HOSTNAME: hostName, VERSION_NUMBER: versionNumber, BRANCH_NAME: branch, MAJOR_VERSION: majorVersion, MINOR_VERSION: minorVersion, BUILD_NUMBER: buildNumber)
     into processResources.destinationDir.toString()

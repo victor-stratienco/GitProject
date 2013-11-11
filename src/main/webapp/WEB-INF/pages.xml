@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages xmlns="http://jboss.org/schema/seam/pages"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://jboss.org/schema/seam/pages http://jboss.org/schema/seam/pages-2.3.xsd"
+       no-conversation-view-id="/home2.xhtml">
+       <!--login-view-id="/login.xhtml">-->
+
+	<!--<page view-id="/performLogin.xhtml" action="#{identity.login}">-->
+		<!--<description>Home</description>-->
+		<!---->
+		<!--<param name="username" value="#{credentials.username}"/>-->
+		<!--<param name="password" value="#{credentials.password}"/>-->
+		<!---->
+		<!--<navigation from-action="#{identity.login}">-->
+			<!--<rule if="#{not identity.loggedIn}">-->
+				<!--<redirect view-id="/login.xhtml"/>-->
+			<!--</rule>-->
+			<!--<rule if="#{identity.loggedIn and empty redirect.viewId}">-->
+				<!--&lt;!&ndash; Either the user hit the log-in page directly, or the session has expired while the log-in page sat idle &ndash;&gt;-->
+				<!--<redirect view-id="/home.xhtml"/>-->
+			<!--</rule>-->
+			<!--<rule if="#{identity.loggedIn and not empty redirect.viewId}">-->
+				<!--<redirect view-id="#{redirect.viewId}"/>-->
+			<!--</rule>-->
+		<!--</navigation>-->
+	<!--</page>-->
+
+    <!--<page view-id="*" scheme="https">-->
+    	<!--<navigation from-action="close" evaluate="#{navigationManager.endAndRedirect()}" />-->
+    		<!---->
+		<!--<navigation from-action="redirect">-->
+			<!--<redirect />-->
+		<!--</navigation>-->
+		<!---->
+		<!--<navigation from-action="cageResults">-->
+			<!--<redirect view-id="/cage/cageResults.seam" />-->
+		<!--</navigation>-->
+		<!---->
+    <!--</page>-->
+    <!---->
+    <!--&lt;!&ndash; These includes have to be stated explicitly in order to check for existence  -->
+			<!--when generating the page view in service requests &ndash;&gt;-->
+			<!---->
+    <!--<page view-id="/serviceRequests/requestForms/transgenics/include/viewTimedPregnancyTransgenics.xhtml"/>-->
+    <!--<page view-id="/serviceRequests/requestForms/transgenics/include/editTimedPregnancyTransgenics.xhtml"/>-->
+	<!--<page view-id="/serviceRequests/requestForms/facility/include/viewTimedPregnancyFacility.xhtml" />-->
+	<!--<page view-id="/serviceRequests/requestForms/facility/include/workTimedPregnancyFacility.xhtml" />-->
+	<!--<page view-id="/serviceRequests/requestForms/facility/include/editTimedPregnancyFacility.xhtml" />-->
+	<!---->
+    <!--<page view-id="/serviceRequests/requestForms/facility/include/viewEuthanasia.xhtml"/>-->
+    <!--<page view-id="/serviceRequests/requestForms/facility/include/editEuthanasia.xhtml"/>-->
+    <!--<page view-id="/serviceRequests/requestForms/facility/include/viewBloodCollection.xhtml"/>-->
+    <!--<page view-id="/serviceRequests/requestForms/facility/include/editBloodCollection.xhtml"/>-->
+    <!--<page view-id="/serviceRequests/requestForms/facility/include/viewMoveCagesBetweenRooms.xhtml"/>-->
+    <!--<page view-id="/serviceRequests/requestForms/facility/include/editMoveCagesBetweenRooms.xhtml"/>-->
+    <!--<page view-id="/serviceRequests/requestForms/facility/include/viewSurgicalProcedure.xhtml"/>-->
+    <!--<page view-id="/serviceRequests/requestForms/facility/include/editSurgicalProcedure.xhtml"/>-->
+    <!--<page view-id="/serviceRequests/requestForms/facility/include/viewFasting.xhtml"/>-->
+    <!--<page view-id="/serviceRequests/requestForms/facility/include/editFasting.xhtml"/>-->
+    <!--<page view-id="/serviceRequests/requestForms/facility/include/viewSpecialDiet.xhtml"/>-->
+    <!--<page view-id="/serviceRequests/requestForms/facility/include/editSpecialDiet.xhtml"/>-->
+    <!--<page view-id="/serviceRequests/requestForms/facility/include/viewVHPDisinfectionOfEquipment.xhtml"/>-->
+    <!--<page view-id="/serviceRequests/requestForms/facility/include/editVHPDisinfectionOfEquipment.xhtml"/>-->
+    <!--<page view-id="/serviceRequests/requestForms/facility/include/viewInjection.xhtml"/>-->
+    <!--<page view-id="/serviceRequests/requestForms/facility/include/editInjection.xhtml"/>-->
+    <!--<page view-id="/serviceRequests/requestForms/facility/include/viewWean.xhtml"/>-->
+    <!--<page view-id="/serviceRequests/requestForms/facility/include/editWean.xhtml"/>-->
+    <!--<page view-id="/serviceRequests/requestForms/facility/include/viewLiveAnimalImportation.xhtml"/>-->
+    <!--<page view-id="/serviceRequests/requestForms/facility/include/editLiveAnimalImportation.xhtml"/>-->
+    <!--<page view-id="/serviceRequests/requestForms/facility/include/viewLiveAnimalExportation.xhtml"/>-->
+    <!--<page view-id="/serviceRequests/requestForms/facility/include/editLiveAnimalExportation.xhtml"/>-->
+    <!--<page view-id="/serviceRequests/requestForms/facility/include/viewHealthMonitoringTest.xhtml"/>-->
+    <!--<page view-id="/serviceRequests/requestForms/facility/include/editHealthMonitoringTest.xhtml"/>-->
+
+    <!--<page view-id="/regulations/animalProtocol/include/*" scheme="https">-->
+    	<!--<navigation>-->
+	        <!--<redirect view-id="/error.xhtml">-->
+	            <!--<message severity="error">You don't have permission to access this resource</message>-->
+	        <!--</redirect>-->
+        <!--</navigation>-->
+    <!--</page>-->
+    <!--<page view-id="/cage/include/*" scheme="https">-->
+    	<!--<navigation>-->
+	        <!--<redirect view-id="/error.xhtml">-->
+	            <!--<message severity="error">You don't have permission to access this resource</message>-->
+	        <!--</redirect>-->
+		<!--</navigation>-->
+    <!--</page>-->
+    <!--<page view-id="/mouseline/include/*" scheme="https">-->
+    	<!--<navigation>-->
+	        <!--<redirect view-id="/error.xhtml">-->
+	            <!--<message severity="error">You don't have permission to access this resource</message>-->
+	        <!--</redirect>-->
+	    <!--</navigation>-->
+    <!--</page>-->
+    <!--<page view-id="/person/include/*" scheme="https">-->
+    	<!--<navigation>-->
+	        <!--<redirect view-id="/error.xhtml">-->
+	            <!--<message severity="error">You don't have permission to access this resource</message>-->
+	        <!--</redirect>-->
+        <!--</navigation>-->
+    <!--</page>-->
+    <!--<page view-id="/serviceRequests/include/*" scheme="https">-->
+    	<!--<navigation>-->
+	        <!--<redirect view-id="/error.xhtml">-->
+	            <!--<message severity="error">You don't have permission to access this resource</message>-->
+	        <!--</redirect>-->
+        <!--</navigation>-->
+    <!--</page>-->
+    <!--<page view-id="/homepage/include/*" scheme="https">-->
+    	<!--<navigation>-->
+	        <!--<redirect view-id="/error.xhtml">-->
+	            <!--<message severity="error">You don't have permission to access this resource</message>-->
+	        <!--</redirect>-->
+        <!--</navigation>-->
+    <!--</page>-->
+    <!--<page view-id="/request/include/*" scheme="https">-->
+    	<!--<navigation>-->
+	        <!--<redirect view-id="/error.xhtml">-->
+	            <!--<message severity="error">You don't have permission to access this resource</message>-->
+	        <!--</redirect>-->
+       	<!--</navigation>-->
+    <!--</page>-->
+    <!--<page view-id="/serviceRequests/requestForms/facility/include/*" scheme="https">-->
+    	<!--<navigation>-->
+	        <!--<redirect view-id="/error.xhtml">-->
+	            <!--<message severity="error">You don't have permission to access this resource</message>-->
+	        <!--</redirect>-->
+       	<!--</navigation>-->
+    <!--</page>-->
+    <!--<page view-id="/serviceRequests/requestForms/transgenics/include/*" scheme="https">-->
+    	<!--<navigation>-->
+	        <!--<redirect view-id="/error.xhtml">-->
+	            <!--<message severity="error">You don't have permission to access this resource</message>-->
+	        <!--</redirect>-->
+        <!--</navigation>-->
+    <!--</page>-->
+
+    <!--<exception class="ca.phenogenomics.misc.exceptions.TaskNotFoundException">-->
+        <!--<redirect view-id="/home.xhtml">-->
+            <!--<message severity="warn">Task not found</message>-->
+        <!--</redirect>-->
+    <!--</exception>-->
+
+    <!--<exception class="ca.phenogenomics.misc.exceptions.TaskPoolNotFoundException">-->
+        <!--<redirect view-id="/home.xhtml">-->
+            <!--<message severity="warn">Task Pool not found</message>-->
+        <!--</redirect>-->
+    <!--</exception>-->
+
+    <!--<exception class="org.jboss.seam.framework.EntityNotFoundException">-->
+        <!--<redirect view-id="/error.xhtml">-->
+            <!--<message severity="warn">Record not found</message>-->
+        <!--</redirect>-->
+    <!--</exception>-->
+    <!---->
+    <!--<exception class="javax.persistence.EntityNotFoundException">-->
+        <!--<redirect view-id="/error.xhtml">-->
+            <!--<message severity="warn">Record not found</message>-->
+        <!--</redirect>-->
+    <!--</exception>-->
+
+    <!--<exception class="javax.persistence.EntityExistsException">-->
+        <!--<redirect view-id="/error.xhtml">-->
+            <!--<message severity="warn">Duplicate record</message>-->
+        <!--</redirect>-->
+    <!--</exception>-->
+    <!---->
+    <!--<exception class="javax.persistence.OptimisticLockException">-->
+        <!--<end-conversation/>-->
+        <!--<redirect view-id="/error.xhtml">-->
+            <!--<message severity="warn">Another user changed the same data, please try again</message>-->
+        <!--</redirect>-->
+    <!--</exception>-->
+
+    <!--<exception class="org.jboss.cache.lock.TimeoutException">-->
+        <!--<end-conversation/>-->
+        <!--<redirect view-id="/error.xhtml">-->
+            <!--<message severity="warn">Another user is changing the same data, please wait a few minutes and try again</message>-->
+        <!--</redirect>-->
+    <!--</exception>-->
+
+    <!--<exception class="java.lang.IllegalArgumentException">        -->
+        <!--<redirect view-id="/error.xhtml">-->
+            <!--<message severity="error">Unexpected error, please log out and try again</message>-->
+        <!--</redirect>-->
+    <!--</exception>-->
+
+    <!--<exception class="java.lang.NullPointerException">        -->
+        <!--<redirect view-id="/error.xhtml">-->
+            <!--<message severity="error">Unexpected error, please log out and try again</message>-->
+        <!--</redirect>-->
+    <!--</exception>-->
+    <!---->
+    <!--<exception class="org.jboss.seam.InstantiationException">        -->
+        <!--<redirect view-id="/error.xhtml">-->
+            <!--<message severity="error">Unexpected error, please contact your administrator</message>-->
+        <!--</redirect>-->
+    <!--</exception>-->
+
+    <!--<exception class="org.jboss.seam.security.AuthorizationException">-->
+        <!--<redirect view-id="/unauthorized.xhtml">-->
+            <!--<message severity="error">You don't have permission to access this resource</message>-->
+        <!--</redirect>-->
+    <!--</exception>-->
+
+    <!--<exception class="org.jboss.seam.security.NotLoggedInException">-->
+        <!--<redirect view-id="/login.xhtml">-->
+            <!--<message severity="warn">#{messages['org.jboss.seam.NotLoggedIn']}</message>-->
+        <!--</redirect>-->
+    <!--</exception>-->
+
+    <!--<exception class="javax.faces.application.ViewExpiredException">-->
+		<!--<redirect view-id="/login.xhtml">-->
+			<!--<message severity="warn">Your session has timed out, please try again.</message>-->
+		<!--</redirect>-->
+    <!--</exception>-->
+
+    <!--<exception class="org.jboss.seam.ConcurrentRequestTimeoutException" log-level="trace">-->
+		<!--<http-error error-code="503" />-->
+    <!--</exception>-->
+
+    <!--<exception class="java.lang.Exception">-->
+        <!--<redirect view-id="/error.xhtml">-->
+            <!--<message severity="error">Unexpected error, please log out and try again</message>-->
+        <!--</redirect>-->
+    <!--</exception>-->
+
+    <!--<exception>-->
+        <!--<redirect view-id="/error.xhtml" >-->
+            <!--<message severity="error">Unexpected error, please log out and try again</message>-->
+        <!--</redirect>-->
+    <!--</exception>-->
+
+</pages>
