@@ -24,7 +24,7 @@
     <!-- Disable the seam multipart filter to be able to use the <rich:fileUpload> component -->
     <!--<web:multipart-filter disabled="true" />-->
 
-	 A list of available resource bundles (messages)
+	 <!--A list of available resource bundles (messages)-->
 	<core:resource-loader>
 		<core:bundle-names>
 			<!-- List of I18N/L9N files -->

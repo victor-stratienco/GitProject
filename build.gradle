@@ -7,7 +7,8 @@ apply from: 'checkVersions.gradle'
 //import org.apache.tools.ant.filters.ReplaceTokens
 //
 //String buildType = hasProperty('buildType') ? buildType : 'dev'
-String deploymentDir = '/usr/local/jboss7/standalone/deployments'
+String deploymentDir = '/home/victor/_DATA_/jboss-as-7.1.1.Final/standalone/deployments'
+// String deploymentDir = '/usr/local/jboss7/standalone/deployments'
 //String debug = (buildType == 'prod' ? 'false' : 'true')
 //String hostName = hasProperty('hostName') ? hostName : 'HOST_NAME'
 //String branch = hasProperty('branch') ? branch : 'BRANCH_NAME'
