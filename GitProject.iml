@@ -36,26 +36,25 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="jdk" jdkName="1.7" jdkType="JavaSDK" />
     <orderEntry type="library" exported="" name="jboss-servlet-api_3.0_spec-1.0.1.Final" level="project" />
-    <orderEntry type="library" exported="" name="jboss-jsf-api_2.1_spec-2.0.7.Final" level="project" />
     <orderEntry type="library" exported="" name="jcommander-1.12" level="project" />
     <orderEntry type="library" exported="" name="jboss-ejb-api_3.1_spec-1.0.2.Final" level="project" />
     <orderEntry type="library" exported="" name="jsf-impl-2.1.11-jbossorg-3" level="project" />
     <orderEntry type="library" exported="" name="jboss-seam-ui-2.3.1.Final" level="project" />
-    <orderEntry type="library" exported="" name="commons-beanutils-1.7.0" level="project" />
     <orderEntry type="library" exported="" name="jboss-seam-debug-2.3.1.Final" level="project" />
     <orderEntry type="library" exported="" name="jboss-seam-2.3.1.Final" level="project" />
     <orderEntry type="library" exported="" name="snakeyaml-1.6" level="project" />
     <orderEntry type="library" exported="" name="junit-4.8.2" level="project" />
-    <orderEntry type="library" exported="" name="itext-rtf-2.1.2" level="project" />
     <orderEntry type="library" exported="" name="testng-5.14.10" level="project" />
-    <orderEntry type="library" exported="" name="jboss-seam-pdf-2.3.1.Final" level="project" />
     <orderEntry type="library" exported="" name="jboss-el-1.0_02.CR6" level="project" />
-    <orderEntry type="library" exported="" name="jxl-2.6.10" level="project" />
-    <orderEntry type="library" exported="" name="itext-2.1.2" level="project" />
-    <orderEntry type="library" exported="" name="jboss-seam-mail-2.3.1.Final" level="project" />
-    <orderEntry type="library" exported="" name="jboss-seam-excel-2.3.1.Final" level="project" />
     <orderEntry type="library" exported="" name="bsh-2.0b4" level="project" />
     <orderEntry type="library" exported="" name="el-api-1.0" level="project" />
+    <orderEntry type="library" exported="" name="jboss-jsf-api_2.1_spec-2.0.4.Final" level="project" />
+    <orderEntry type="library" exported="" name="commons-collections-3.2.1" level="project" />
+    <orderEntry type="library" exported="" scope="RUNTIME" name="mvel2-2.0.16" level="project" />
+    <orderEntry type="library" exported="" scope="RUNTIME" name="antlr-2.7.7" level="project" />
+    <orderEntry type="library" exported="" scope="RUNTIME" name="antlr-runtime-3.1.3" level="project" />
+    <orderEntry type="library" exported="" scope="RUNTIME" name="stringtemplate-3.2" level="project" />
+    <orderEntry type="library" exported="" name="activation-1.1.1" level="project" />
   </component>
 </module>
 

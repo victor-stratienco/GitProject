@@ -4,18 +4,18 @@ apply plugin: 'eclipse'
 apply plugin: 'maven'
 
 apply from: 'checkVersions.gradle'
-import org.apache.tools.ant.filters.ReplaceTokens
-
-String buildType = hasProperty('buildType') ? buildType : 'dev'
+//import org.apache.tools.ant.filters.ReplaceTokens
+//
+//String buildType = hasProperty('buildType') ? buildType : 'dev'
 String deploymentDir = '/usr/local/jboss7/standalone/deployments'
-String debug = (buildType == 'prod' ? 'false' : 'true')
-String hostName = hasProperty('hostName') ? hostName : 'HOST_NAME'
-String branch = hasProperty('branch') ? branch : 'BRANCH_NAME'
-String majorVersion = hasProperty('majorVersion') ? majorVersion : 'MAJOR_VERSION'
-String minorVersion = hasProperty('minorVersion') ? minorVersion : 'MINOR_VERSION'
-String buildNumber = hasProperty('buildNumber') ? buildNumber : 'BUILD_NUMBER'
-String versionNumber = "[" + buildType + ":" + branch + "]-" + majorVersion + "." + minorVersion + "." + buildNumber
-String debugBuild = hasProperty('debugBuild') ? debugBuild : 'true'
+//String debug = (buildType == 'prod' ? 'false' : 'true')
+//String hostName = hasProperty('hostName') ? hostName : 'HOST_NAME'
+//String branch = hasProperty('branch') ? branch : 'BRANCH_NAME'
+//String majorVersion = hasProperty('majorVersion') ? majorVersion : 'MAJOR_VERSION'
+//String minorVersion = hasProperty('minorVersion') ? minorVersion : 'MINOR_VERSION'
+//String buildNumber = hasProperty('buildNumber') ? buildNumber : 'BUILD_NUMBER'
+//String versionNumber = "[" + buildType + ":" + branch + "]-" + majorVersion + "." + minorVersion + "." + buildNumber
+//String debugBuild = hasProperty('debugBuild') ? debugBuild : 'true'
 
 String seamVersion = '2.3.1.Final'
 //String richFacesVersion = '4.3.0.Final'
@@ -36,7 +36,7 @@ war {
     archiveName 'GitProject.war'
     webInf {
         from 'src/main/config/WEB-INF/components.xml', 'src/main/config/WEB-INF/web.xml'
-        filter(ReplaceTokens, tokens: [debug: debugBuild])
+        //filter(ReplaceTokens, tokens: [debug: debugBuild])
     }
 }
 
@@ -48,58 +48,58 @@ task wrapper(type: Wrapper) {
 /////// Seam-specific War files
 
 //Copy the persistence file for this build type into the resources directory
-task copyPersistence(type: Copy) {
-    from ('src/main/config/META-INF/') {
-        //include 'persistence-' + buildType + '.xml'
-        //rename 'persistence-.*.xml', 'persistence.xml'
-    }
-    into processResources.destinationDir.toString() + '/META-INF/'
-}
+//task copyPersistence(type: Copy) {
+//    from ('src/main/config/META-INF/') {
+//        //include 'persistence-' + buildType + '.xml'
+//        //rename 'persistence-.*.xml', 'persistence.xml'
+//    }
+//    into processResources.destinationDir.toString() + '/META-INF/'
+//}
 
 
 //Copy the components file into the resources directory
 task copyComponentsXML(type: Copy) {
-    println "Updating configuration files - debug = " + debugBuild
+    //println "Updating configuration files - debug = " + debugBuild
 
     from ('src/main/config/') {
         include 'components.properties'
     }
-    expand(debug: debugBuild)
+    //expand(debug: debugBuild)
     into processResources.destinationDir.toString()
 }
 
 
 //Copy the components file into the resources directory
 task updateConfigurationXML(type: Copy) {
-    println "Updating configuration files - debug = " + debugBuild
+    //println "Updating configuration files - debug = " + debugBuild
     println "Moving files to " + processResources.destinationDir.toString()
 
     from ('src/main/webapp/WEB-INF') {
         include 'web.xml', 'components.xml'
     }
-    expand(debug: debugBuild)
+    //expand(debug: debugBuild)
     into "build/output/WEB-INF"
 }
 
 // fill in parameters based on build type
 task updateProperties (type: Copy) {
-    println "Updating properties files - HOSTNAME = " + hostName
-    println "Updating properties files - VERSION_NUMBER = " + versionNumber
-    println "Updating properties files - BRANCH_NAME = " + branch
-    println "Updating properties files - MAJOR_VERSION = " + majorVersion
-    println "Updating properties files - MINOR_VERSION = " + minorVersion
-    println "Updating properties files - BUILD_NUMBER = " + buildNumber
+//    println "Updating properties files - HOSTNAME = " + hostName
+//    println "Updating properties files - VERSION_NUMBER = " + versionNumber
+//    println "Updating properties files - BRANCH_NAME = " + branch
+//    println "Updating properties files - MAJOR_VERSION = " + majorVersion
+//    println "Updating properties files - MINOR_VERSION = " + minorVersion
+//    println "Updating properties files - BUILD_NUMBER = " + buildNumber
 
-    //from ('src/main/resources/') {
-        //include 'application_en.properties', 'liverebel.xml'
-    //}
-    expand(HOSTNAME: hostName, VERSION_NUMBER: versionNumber, BRANCH_NAME: branch, MAJOR_VERSION: majorVersion, MINOR_VERSION: minorVersion, BUILD_NUMBER: buildNumber)
+    from ('src/main/resources/') {
+        include 'application_en.properties', 'liverebel.xml'
+    }
+    //expand(HOSTNAME: hostName, VERSION_NUMBER: versionNumber, BRANCH_NAME: branch, MAJOR_VERSION: majorVersion, MINOR_VERSION: minorVersion, BUILD_NUMBER: buildNumber)
     into processResources.destinationDir.toString()
 }
 
 
 war.dependsOn copyComponentsXML
-war.dependsOn copyPersistence
+//war.dependsOn copyPersistence
 war.dependsOn updateProperties
 //war.dependsOn updateConfigurationXML
 
@@ -215,9 +215,9 @@ repositories {
     maven {
         url "http://repository.jboss.org/nexus/content/groups/public-jboss/"
     }
-    maven {
-        url "http://repository.primefaces.org/"
-    }
+//    maven {
+//        url "http://repository.primefaces.org/"
+//    }
     mavenCentral()
     mavenLocal()
 }
@@ -268,17 +268,17 @@ dependencies {
 //    compile 'jfree:jfreechart:1.0.13'
 //    compile 'org.apache.pdfbox:pdfbox:1.7.1'
 //    compile 'org.mnode.ical4j:ical4j:1.0.4'
-//    compile 'commons-collections:commons-collections:3.2.1'
+    compile 'commons-collections:commons-collections:3.2.1'
 //    compile 'javax.mail:mail:1.4.7'
-//    compile 'javax.activation:activation:1.1.1'
-//    runtime 'org.antlr:antlr-runtime:3.1.3'
-//    runtime 'org.mvel:mvel2:2.0.16'
+    compile 'javax.activation:activation:1.1.1'
+    runtime 'org.antlr:antlr-runtime:3.1.3'
+    runtime 'org.mvel:mvel2:2.0.16'
 //
 //    //for instrumentation
 //    providedCompile 'org.slf4j:slf4j-log4j12:1.6.4'
 //
-//    providedRuntime 'javax.el:el-api:1.0'
-//    providedRuntime 'antlr:antlr:2.7.7'
+    providedRuntime 'javax.el:el-api:1.0'
+    providedRuntime 'antlr:antlr:2.7.7'
 //
 //    //testing
 //    testCompile 'org.testng:testng:6.8'
