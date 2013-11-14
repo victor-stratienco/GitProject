@@ -50,7 +50,7 @@
     <orderEntry type="library" exported="" name="el-api-1.0" level="project" />
     <orderEntry type="library" exported="" name="jboss-jsf-api_2.1_spec-2.0.4.Final" level="project" />
     <orderEntry type="library" exported="" name="commons-collections-3.2.1" level="project" />
-    <orderEntry type="library" exported="" scope="RUNTIME" name="antlr-2.7.7" level="project" />
+    <orderEntry type="library" exported="" name="antlr-2.7.7" level="project" />
     <orderEntry type="library" exported="" name="activation-1.1.1" level="project" />
     <orderEntry type="library" exported="" name="mail-1.4.7" level="project" />
     <orderEntry type="library" exported="" name="jcommon-1.0.16" level="project" />
@@ -76,6 +76,13 @@
     <orderEntry type="library" exported="" scope="RUNTIME" name="antlr-3.3" level="project" />
     <orderEntry type="library" exported="" scope="RUNTIME" name="stringtemplate-3.2.1" level="project" />
     <orderEntry type="library" exported="" scope="RUNTIME" name="mvel2-2.1.0.drools16" level="project" />
+    <orderEntry type="library" exported="" name="hibernate-core-4.1.6.Final" level="project" />
+    <orderEntry type="library" exported="" name="dom4j-1.6.1" level="project" />
+    <orderEntry type="library" exported="" name="jboss-logging-3.1.0.GA" level="project" />
+    <orderEntry type="library" exported="" name="javassist-3.15.0-GA" level="project" />
+    <orderEntry type="library" exported="" name="hibernate-jpa-2.0-api-1.0.1.Final" level="project" />
+    <orderEntry type="library" exported="" name="jboss-transaction-api_1.1_spec-1.0.0.Final" level="project" />
+    <orderEntry type="library" exported="" name="hibernate-commons-annotations-4.0.1.Final" level="project" />
   </component>
 </module>
 

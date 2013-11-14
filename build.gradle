@@ -243,9 +243,9 @@ dependencies {
 //
     //Hibernate
     compile 'org.hibernate:hibernate-core:'+hibernateVersion
-//    compile 'org.hibernate:hibernate-entitymanager:'+hibernateVersion
-//    compile 'org.hibernate:hibernate-search:'+hibernateSearchVersion
-//    compile 'org.hibernate:hibernate-validator:'+hibernateValidatorVersion
+    compile 'org.hibernate:hibernate-entitymanager:'+hibernateVersion
+    compile 'org.hibernate:hibernate-search:'+hibernateSearchVersion
+    compile 'org.hibernate:hibernate-validator:'+hibernateValidatorVersion
     compile 'javax.validation:validation-api:1.0.0.GA'
 //
 //    //Lucene
