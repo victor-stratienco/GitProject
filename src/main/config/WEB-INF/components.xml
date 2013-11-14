@@ -16,6 +16,7 @@
 		http://jboss.org/schema/seam/document http://jboss.org/schema/seam/document-2.3.xsd
 		http://jboss.org/schema/seam/async http://jboss.org/schema/seam/async-2.3.xsd">
 
+    <core:init debug="@debug@" jndi-pattern="java:app/lims/#{ejbName}/local" />
 	<!--<core:manager concurrent-request-timeout="10000"-->
 		<!--conversation-id-parameter="cid" conversation-timeout="600000"-->
 		<!--parent-conversation-id-parameter="pid" />-->
@@ -37,8 +38,8 @@
 	<web:logging-filter url-pattern="*.seam" />
 	<web:rewrite-filter view-mapping="*.seam" />
 
-	<!--<cache:jboss-cache-provider configuration="treecache.xml" />-->
-	<!--<async:quartz-dispatcher />-->
+	<cache:jboss-cache-provider configuration="treecache.xml" />
+	<async:quartz-dispatcher />
 
 	<!--<document:document-store use-extensions="true" />-->
 </components>

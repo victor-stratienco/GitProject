@@ -50,11 +50,32 @@
     <orderEntry type="library" exported="" name="el-api-1.0" level="project" />
     <orderEntry type="library" exported="" name="jboss-jsf-api_2.1_spec-2.0.4.Final" level="project" />
     <orderEntry type="library" exported="" name="commons-collections-3.2.1" level="project" />
-    <orderEntry type="library" exported="" scope="RUNTIME" name="mvel2-2.0.16" level="project" />
     <orderEntry type="library" exported="" scope="RUNTIME" name="antlr-2.7.7" level="project" />
-    <orderEntry type="library" exported="" scope="RUNTIME" name="antlr-runtime-3.1.3" level="project" />
-    <orderEntry type="library" exported="" scope="RUNTIME" name="stringtemplate-3.2" level="project" />
     <orderEntry type="library" exported="" name="activation-1.1.1" level="project" />
+    <orderEntry type="library" exported="" name="mail-1.4.7" level="project" />
+    <orderEntry type="library" exported="" name="jcommon-1.0.16" level="project" />
+    <orderEntry type="library" exported="" name="ical4j-1.0.4" level="project" />
+    <orderEntry type="library" exported="" name="commons-logging-1.1.1" level="project" />
+    <orderEntry type="library" exported="" scope="RUNTIME" name="knowledge-api-5.3.3.Final" level="project" />
+    <orderEntry type="library" exported="" name="backport-util-concurrent-3.1" level="project" />
+    <orderEntry type="library" exported="" scope="RUNTIME" name="drools-api-5.1.1" level="project" />
+    <orderEntry type="library" exported="" name="commons-lang-2.6" level="project" />
+    <orderEntry type="library" exported="" name="log4j-1.2.16" level="project" />
+    <orderEntry type="library" exported="" name="fontbox-1.7.1" level="project" />
+    <orderEntry type="library" exported="" scope="RUNTIME" name="antlr-runtime-3.3" level="project" />
+    <orderEntry type="library" exported="" name="jempbox-1.7.1" level="project" />
+    <orderEntry type="library" exported="" scope="RUNTIME" name="ecj-3.5.1" level="project" />
+    <orderEntry type="library" exported="" name="commons-codec-1.5" level="project" />
+    <orderEntry type="library" exported="" name="jfreechart-1.0.13" level="project" />
+    <orderEntry type="library" exported="" name="validation-api-1.0.0.GA" level="project" />
+    <orderEntry type="library" exported="" name="slf4j-api-1.6.4" level="project" />
+    <orderEntry type="library" exported="" scope="RUNTIME" name="drools-compiler-5.3.3.Final" level="project" />
+    <orderEntry type="library" exported="" name="pdfbox-1.7.1" level="project" />
+    <orderEntry type="library" exported="" scope="RUNTIME" name="drools-core-5.3.3.Final" level="project" />
+    <orderEntry type="library" exported="" name="slf4j-log4j12-1.6.4" level="project" />
+    <orderEntry type="library" exported="" scope="RUNTIME" name="antlr-3.3" level="project" />
+    <orderEntry type="library" exported="" scope="RUNTIME" name="stringtemplate-3.2.1" level="project" />
+    <orderEntry type="library" exported="" scope="RUNTIME" name="mvel2-2.1.0.drools16" level="project" />
   </component>
 </module>
 
