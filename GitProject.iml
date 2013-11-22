@@ -65,7 +65,6 @@
     <orderEntry type="library" exported="" scope="RUNTIME" name="antlr-runtime-3.3" level="project" />
     <orderEntry type="library" exported="" name="jempbox-1.7.1" level="project" />
     <orderEntry type="library" exported="" scope="RUNTIME" name="ecj-3.5.1" level="project" />
-    <orderEntry type="library" exported="" name="commons-codec-1.5" level="project" />
     <orderEntry type="library" exported="" name="jfreechart-1.0.13" level="project" />
     <orderEntry type="library" exported="" name="validation-api-1.0.0.GA" level="project" />
     <orderEntry type="library" exported="" name="slf4j-api-1.6.4" level="project" />
@@ -76,13 +75,43 @@
     <orderEntry type="library" exported="" scope="RUNTIME" name="antlr-3.3" level="project" />
     <orderEntry type="library" exported="" scope="RUNTIME" name="stringtemplate-3.2.1" level="project" />
     <orderEntry type="library" exported="" scope="RUNTIME" name="mvel2-2.1.0.drools16" level="project" />
-    <orderEntry type="library" exported="" name="hibernate-core-4.1.6.Final" level="project" />
     <orderEntry type="library" exported="" name="dom4j-1.6.1" level="project" />
     <orderEntry type="library" exported="" name="jboss-logging-3.1.0.GA" level="project" />
-    <orderEntry type="library" exported="" name="javassist-3.15.0-GA" level="project" />
     <orderEntry type="library" exported="" name="hibernate-jpa-2.0-api-1.0.1.Final" level="project" />
     <orderEntry type="library" exported="" name="jboss-transaction-api_1.1_spec-1.0.0.Final" level="project" />
     <orderEntry type="library" exported="" name="hibernate-commons-annotations-4.0.1.Final" level="project" />
+    <orderEntry type="library" exported="" name="lucene-kuromoji-3.6.2" level="project" />
+    <orderEntry type="library" exported="" name="lucene-stempel-3.6.2" level="project" />
+    <orderEntry type="library" exported="" name="snappy-java-1.0.4.1" level="project" />
+    <orderEntry type="library" exported="" name="hibernate-entitymanager-4.1.6.Final" level="project" />
+    <orderEntry type="library" exported="" name="solr-analysis-extras-3.6.2" level="project" />
+    <orderEntry type="library" exported="" name="lucene-spatial-3.6.2" level="project" />
+    <orderEntry type="library" exported="" name="hibernate-search-engine-4.2.0.Final" level="project" />
+    <orderEntry type="library" exported="" name="hibernate-search-analyzers-4.2.0.Final" level="project" />
+    <orderEntry type="library" exported="" name="lucene-misc-3.6.2" level="project" />
+    <orderEntry type="library" exported="" name="javassist-3.17.1-GA" level="project" />
+    <orderEntry type="library" exported="" name="lucene-facet-3.6.2" level="project" />
+    <orderEntry type="library" exported="" name="avro-1.6.3" level="project" />
+    <orderEntry type="library" exported="" name="solr-solrj-3.6.2" level="project" />
+    <orderEntry type="library" exported="" name="hibernate-search-4.2.0.Final" level="project" />
+    <orderEntry type="library" exported="" name="commons-io-2.1" level="project" />
+    <orderEntry type="library" exported="" name="lucene-grouping-3.6.2" level="project" />
+    <orderEntry type="library" exported="" name="lucene-core-3.6.2" level="project" />
+    <orderEntry type="library" exported="" name="lucene-memory-3.6.2" level="project" />
+    <orderEntry type="library" exported="" name="jackson-mapper-asl-1.8.8" level="project" />
+    <orderEntry type="library" exported="" name="solr-core-3.6.2" level="project" />
+    <orderEntry type="library" exported="" name="hibernate-core-4.1.9.Final" level="project" />
+    <orderEntry type="library" exported="" name="lucene-analyzers-3.6.2" level="project" />
+    <orderEntry type="library" exported="" name="lucene-highlighter-3.6.2" level="project" />
+    <orderEntry type="library" exported="" name="paranamer-2.3" level="project" />
+    <orderEntry type="library" exported="" name="lucene-spellchecker-3.6.2" level="project" />
+    <orderEntry type="library" exported="" name="lucene-smartcn-3.6.2" level="project" />
+    <orderEntry type="library" exported="" name="hibernate-validator-4.2.0.Final" level="project" />
+    <orderEntry type="library" exported="" name="jackson-core-asl-1.8.8" level="project" />
+    <orderEntry type="library" exported="" name="lucene-phonetic-3.6.2" level="project" />
+    <orderEntry type="library" exported="" name="commons-codec-1.6" level="project" />
+    <orderEntry type="library" exported="" name="hibernate-search-orm-4.2.0.Final" level="project" />
+    <orderEntry type="library" exported="" name="guava-r05" level="project" />
   </component>
 </module>
 
