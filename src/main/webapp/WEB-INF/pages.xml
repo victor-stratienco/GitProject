@@ -2,7 +2,7 @@
 <pages xmlns="http://jboss.org/schema/seam/pages"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://jboss.org/schema/seam/pages http://jboss.org/schema/seam/pages-2.3.xsd"
-       no-conversation-view-id="/home2.xhtml">
+       no-conversation-view-id="/home.xhtml">
        <!--login-view-id="/login.xhtml">-->
 
 	<!--<page view-id="/performLogin.xhtml" action="#{identity.login}">-->

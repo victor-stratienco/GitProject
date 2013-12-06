@@ -1,12 +1,57 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html
-        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-    <title>AAA</title>
-</head>
-<body>
-      <b>TEST</b>
-</body>
-</html>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:s="http://jboss.org/schema/seam/taglib"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:rich="http://richfaces.org/rich"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:tcp="http://www.phenogenomics.ca/jsf"
+                xmlns:tcpfn="http://www.phenogenomics.ca/elFunctions"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                template="/layout/template.xhtml">
+
+    <ui:define name="head">
+
+        <ui:remove>
+            <!--<h:outputStylesheet library="stylesheet" name="home.css"/>-->
+            <!--<h:outputStylesheet library="stylesheet" name="navigation.css"/>-->
+            <!--<h:outputStylesheet library="stylesheet" name="buttonsLinks.css"/>-->
+        </ui:remove>
+
+        <style type="text/css">
+            .leftCol {width: 28%; vertical-align: top;}
+            .mainCol {width: 72%; vertical-align: top; padding-left: 12px;}
+            .rightCol {vertical-align: top;}
+            .centerCol {vertical-align: top; width: 65%; padding-right: 12px;}
+        </style>
+    </ui:define>
+
+    <ui:define name="body">
+        <!--<h:form styleClass="home">-->
+            <div style="background-color: white; position: relative; top: -25px;
+			    margin: 0 -30px; padding: 10px 30px; border-top: 1px solid #94A8C2;">
+                TEST
+                <br/>
+                <h2>JSF 2 example on JBoss 7</h2>
+                <div>
+                    <h:form id="jsfexample">
+                        <h:panelGrid columns="2" styleClass="default">
+
+                            <h:outputText value="Enter key:"/>
+
+                            <h:outputText value="Enter value:"/>
+
+                            <h:messages/>
+
+
+                        </h:panelGrid>
+
+                    </h:form>
+                </div>
+			</div>
+        <!--</h:form>-->
+    </ui:define>
+</ui:composition>

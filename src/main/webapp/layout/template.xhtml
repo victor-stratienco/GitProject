@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:a="http://richfaces.org/a4j"
+        xmlns:s="http://jboss.org/schema/seam/taglib" contentType="text/html">
+
+    <html>
+
+        <h:head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <title>#{messages['site.name']}</title>
+            <link rel="shortcut icon" href="#{request.contextPath}/favicon.ico" />
+
+            <!--<h:outputStylesheet library="stylesheet" name="components.css"/>-->
+
+            <ui:insert name="head" />
+
+            <!--  Google Analytics code -->
+            <script type="text/javascript">
+
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-18165338-5']);
+                _gaq.push(['_trackPageview']);
+
+                (function() {
+                    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                })();
+
+            </script>
+
+            <script type="text/javascript">
+                document.onclick = deselect;
+            </script>
+
+            <!--<h:outputScript name="componentUtils.js" library="js"/>-->
+        </h:head>
+
+
+        <h:body onload="#{onLoadParam}" onkeydown="#{onKeyDownParam}">
+
+            <div id="container">
+                <span style="position: absolute; top: 0; left: 5px;">
+                    <s:link	view="/home.xhtml" propagation="none">
+                        <h:graphicImage library="img" name="tcp_logo.png" />
+                    </s:link>
+                </span>
+
+                <ui:include src="menu.xhtml" layout="block" />
+
+                <ui:include src="breadcrumb.xhtml" rendered="#{conversation.nested}" />
+
+                <div id="body">
+                    <ui:remove>
+                    <!--<a:outputPanel id="systemAlert">-->
+                        <!--<s:div rendered="#{alertPage.active}"-->
+                               <!--style="color: rgb(192, 0, 0); font-size: 14px;">-->
+                            <!--<p style="margin-top: 0;">#{alertPage.message}</p>-->
+                        <!--</s:div>-->
+                    <!--</a:outputPanel>-->
+                    <!--<a:outputPanel id="statusPanel" ajaxRendered="true">-->
+                        <!--<div class="messages">-->
+                            <!--<h:messages id="messages" globalOnly="true" styleClass="message"-->
+                                        <!--errorClass="errormsg" infoClass="infomsg" warnClass="warnmsg"-->
+                                        <!--rendered="#{showGlobalMessages != 'false'}" />-->
+                        <!--</div>-->
+                        <!--<a:status name="ajaxProgress" layout="inline" startStyleClass="start"-->
+                                  <!--startText="Processing"/>-->
+                    <!--</a:outputPanel>-->
+                    </ui:remove>
+
+                    <ui:insert name="body" />
+                </div>
+            </div>
+
+            <div id="footer" style="padding-bottom: 60px">
+                <p>
+                    <a href="http://localhost:8080/">GitProject</a>
+                    <h:outputText value=" | " />
+                    <s:link value="Contact List" view="/contactList.xhtml" />
+                    <h:outputText value=" | " />
+                    <s:link value="Bug Report" view="/bugReport.xhtml" />
+                </p>
+
+                <p>
+                    GitProject - Version MAJOR_VERSION.MINOR_VERSION - Build #BUILD_NUMBER
+                    <s:fragment rendered="#{init.debug}">
+                        Branch: <i>BRANCH_NAME</i>
+                    </s:fragment>
+                </p>
+
+                <s:fragment rendered="#{init.debug}">
+                    <a:log mode="popup" hotkey="D" />
+                    <p style="margin-top: -1.0em; margin-bottom: 0;">
+                        Ajax4jsf Log (Ctrl+Shift+D)
+                        #{' - '}
+                        <s:link id="debugConsole" view="/debug.xhtml" value="Debug console"
+                                target="debugConsole" />
+                        #{' - '}
+                        <s:link id="resetSession" view="/home.xhtml"
+                                action="#{org.jboss.seam.web.session.invalidate()}"
+                                propagation="none" value="Terminate session" />
+                    </p>
+                </s:fragment>
+            </div>
+        </h:body>
+    </html>
+</f:view>

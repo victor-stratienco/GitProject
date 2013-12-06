@@ -1,6 +1,6 @@
 apply plugin: 'war'
 apply plugin: 'eclipse'
-//apply plugin: 'sonar'
+apply plugin: 'sonar'
 apply plugin: 'maven'
 
 apply from: 'checkVersions.gradle'
@@ -23,9 +23,9 @@ String richFacesVersion = '4.3.0.Final'
 String primeFacesVersion = '3.4.2'
 String droolsVersion = '5.3.3.Final'
 String luceneVersion = '3.6.2'
-String hibernateVersion = '4.1.6.Final'
-String hibernateSearchVersion = '4.2.0.Final'
-String hibernateValidatorVersion = '4.2.0.Final'
+String hibernateVersion = '4.2.7.Final' //'4.1.6.Final'
+String hibernateSearchVersion = '4.4.0.Final' //'4.2.0.Final'
+String hibernateValidatorVersion = '4.3.0.Final' //'4.2.0.Final' '5.0.1.Final'
 
 eclipse.classpath.defaultOutputDir = file('build/eclipseClasses')
 
@@ -261,9 +261,9 @@ dependencies {
     compile 'com.sun.faces:jsf-impl:2.1.11-jbossorg-3'
 
     //Drools	- from where?
-    runtime 'org.drools:drools-api:5.1.1'
-    runtime 'org.drools:drools-compiler:'+droolsVersion
-    runtime 'org.drools:drools-core:'+droolsVersion
+//    runtime 'org.drools:drools-api:5.1.1'
+//    runtime 'org.drools:drools-compiler:'+droolsVersion
+//    runtime 'org.drools:drools-core:'+droolsVersion
 
     //Misc
     compile 'jfree:jfreechart:1.0.13'

@@ -1,8 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component jdk="1.7 (x64)" jdk_type="JavaSDK">
+<component inherit-compiler-output="true" jdk="1.7" jdk_type="JavaSDK">
+	<output-test url="file://$MODULE_DIR$/classes/test/GitProject"/>
 	<exclude-output/>
 	<contentEntry url="file://$MODULE_DIR$">
 		<testFolder url="file://$MODULE_DIR$/src/test/java"/>
 		<testFolder url="file://$MODULE_DIR$/src/test/resources"/>
+		<excludeFolder url="file://$MODULE_DIR$/.idea/libraries"/>
 	</contentEntry>
+	<lib name="antlr-runtime-3.1.3" scope="RUNTIME"/>
+	<lib name="mvel2-2.0.16" scope="RUNTIME"/>
+	<lib name="stringtemplate-3.2" scope="RUNTIME"/>
+	<levels>
+		<level name="jboss-servlet-api_3.0_spec-1.0.1.Final" value="project"/>
+		<level name="jcommander-1.12" value="project"/>
+		<level name="jboss-ejb-api_3.1_spec-1.0.2.Final" value="project"/>
+		<level name="jsf-impl-2.1.11-jbossorg-3" value="project"/>
+		<level name="jboss-seam-ui-2.3.1.Final" value="project"/>
+		<level name="jboss-seam-debug-2.3.1.Final" value="project"/>
+		<level name="jboss-seam-2.3.1.Final" value="project"/>
+		<level name="snakeyaml-1.6" value="project"/>
+		<level name="junit-4.8.2" value="project"/>
+		<level name="testng-5.14.10" value="project"/>
+		<level name="jboss-el-1.0_02.CR6" value="project"/>
+		<level name="bsh-2.0b4" value="project"/>
+		<level name="el-api-1.0" value="project"/>
+		<level name="jboss-jsf-api_2.1_spec-2.0.4.Final" value="project"/>
+		<level name="commons-collections-3.2.1" value="project"/>
+		<level name="antlr-2.7.7" value="project"/>
+		<level name="activation-1.1.1" value="project"/>
+		<level name="mail-1.4.7" value="project"/>
+		<level name="jcommon-1.0.16" value="project"/>
+		<level name="ical4j-1.0.4" value="project"/>
+		<level name="commons-logging-1.1.1" value="project"/>
+		<level name="backport-util-concurrent-3.1" value="project"/>
+		<level name="commons-lang-2.6" value="project"/>
+		<level name="log4j-1.2.16" value="project"/>
+		<level name="fontbox-1.7.1" value="project"/>
+		<level name="jempbox-1.7.1" value="project"/>
+		<level name="jfreechart-1.0.13" value="project"/>
+		<level name="validation-api-1.0.0.GA" value="project"/>
+		<level name="slf4j-api-1.6.4" value="project"/>
+		<level name="pdfbox-1.7.1" value="project"/>
+		<level name="slf4j-log4j12-1.6.4" value="project"/>
+		<level name="dom4j-1.6.1" value="project"/>
+		<level name="hibernate-jpa-2.0-api-1.0.1.Final" value="project"/>
+		<level name="lucene-kuromoji-3.6.2" value="project"/>
+		<level name="lucene-stempel-3.6.2" value="project"/>
+		<level name="solr-analysis-extras-3.6.2" value="project"/>
+		<level name="lucene-spatial-3.6.2" value="project"/>
+		<level name="lucene-misc-3.6.2" value="project"/>
+		<level name="lucene-facet-3.6.2" value="project"/>
+		<level name="solr-solrj-3.6.2" value="project"/>
+		<level name="commons-io-2.1" value="project"/>
+		<level name="lucene-grouping-3.6.2" value="project"/>
+		<level name="lucene-core-3.6.2" value="project"/>
+		<level name="lucene-memory-3.6.2" value="project"/>
+		<level name="solr-core-3.6.2" value="project"/>
+		<level name="lucene-analyzers-3.6.2" value="project"/>
+		<level name="lucene-highlighter-3.6.2" value="project"/>
+		<level name="paranamer-2.3" value="project"/>
+		<level name="lucene-spellchecker-3.6.2" value="project"/>
+		<level name="lucene-smartcn-3.6.2" value="project"/>
+		<level name="lucene-phonetic-3.6.2" value="project"/>
+		<level name="commons-codec-1.6" value="project"/>
+		<level name="antlr-runtime-3.1.3" value="project"/>
+		<level name="mvel2-2.0.16" value="project"/>
+		<level name="stringtemplate-3.2" value="project"/>
+		<level name="jackson-mapper-asl-1.9.13" value="project"/>
+		<level name="hibernate-search-orm-4.4.0.Final" value="project"/>
+		<level name="jboss-transaction-api_1.1_spec-1.0.1.Final" value="project"/>
+		<level name="jackson-core-asl-1.9.13" value="project"/>
+		<level name="hibernate-search-analyzers-4.4.0.Final" value="project"/>
+		<level name="commons-compress-1.4.1" value="project"/>
+		<level name="hibernate-validator-4.3.0.Final" value="project"/>
+		<level name="hibernate-search-4.4.0.Final" value="project"/>
+		<level name="hibernate-entitymanager-4.2.7.Final" value="project"/>
+		<level name="hibernate-core-4.2.7.Final" value="project"/>
+		<level name="javassist-3.18.1-GA" value="project"/>
+		<level name="hibernate-commons-annotations-4.0.4.Final" value="project"/>
+		<level name="jboss-logging-annotations-1.2.0.Beta1" value="project"/>
+		<level name="avro-1.7.5" value="project"/>
+		<level name="hibernate-search-engine-4.4.0.Final" value="project"/>
+		<level name="jboss-logging-3.1.3.GA" value="project"/>
+	</levels>
 </component>
