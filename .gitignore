@@ -6,20 +6,20 @@
 *.class
 
 # Package Files #
-*.jar
-*.war
-*.ear
+#*.jar
+#*.war
+#*.ear
 
 build/
-dist/
-exploded-archives/
-test-build/
-test-output/
-CVS
-classes/
+#dist/
+#exploded-archives/
+#test-build/
+#test-output/
+#CVS
+#classes/
 
 .gradle/
-target/
-.classpath
+#target/
+#.classpath
 
-*.swp
+#*.swp
