@@ -15,6 +15,7 @@
             <link rel="shortcut icon" href="#{request.contextPath}/favicon.ico" />
 
             <!--<h:outputStylesheet library="stylesheet" name="components.css"/>-->
+            <h:outputStylesheet library="stylesheet" name="templatemo_style.css"/>
 
             <ui:insert name="head" />
 
@@ -44,15 +45,21 @@
         <h:body onload="#{onLoadParam}" onkeydown="#{onKeyDownParam}">
 
             <div id="container">
-                <span style="position: absolute; top: 0; left: 5px;">
-                    <s:link	view="/home.xhtml" propagation="none">
-                        <h:graphicImage library="img" name="tcp_logo.png" />
-                    </s:link>
-                </span>
+                <ui:remove>
+                <!--<span style="position: absolute; top: 0; left: 5px;">-->
+                    <!--<s:link	view="/home.xhtml" propagation="none">-->
+                        <!--<h:graphicImage library="img" name="tcp_logo.png" />-->
+                    <!--</s:link>-->
+                <!--</span>-->
 
-                <ui:include src="menu.xhtml" layout="block" />
+                <!--<ui:include src="menu.xhtml" layout="block" />-->
 
-                <ui:include src="breadcrumb.xhtml" rendered="#{conversation.nested}" />
+                <!--<ui:include src="breadcrumb.xhtml" rendered="#{conversation.nested}" />-->
+
+                    <!--image="#{resource['img:bookmark_icon.png']}"-->
+                </ui:remove>
+
+                <ui:include src="simple_blue.xhtml" />
 
                 <div id="body">
                     <ui:remove>
@@ -77,7 +84,8 @@
                 </div>
             </div>
 
-            <div id="footer" style="padding-bottom: 60px">
+            <div id="footer" style="padding-bottom: 0px">
+                <!-- style="padding-bottom: 60px -->
                 <p>
                     <a href="http://localhost:8080/">GitProject</a>
                     <h:outputText value=" | " />
