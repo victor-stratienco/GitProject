@@ -21,37 +21,72 @@
             <!--<h:outputStylesheet library="stylesheet" name="buttonsLinks.css"/>-->
         </ui:remove>
 
+        <h:outputStylesheet library="stylesheet" name="home.css"/>
+
         <style type="text/css">
-            .leftCol {width: 28%; vertical-align: top;}
-            .mainCol {width: 72%; vertical-align: top; padding-left: 12px;}
-            .rightCol {vertical-align: top;}
-            .centerCol {vertical-align: top; width: 65%; padding-right: 12px;}
+            .leftCol {width: 28%; vertical-align: top; border: 1px solid blue;}
+            .mainCol {width: 72%; vertical-align: top; padding-left: 12px; border: 1px solid blue;}
+            .rightCol {vertical-align: top; border: 1px solid blue;}
+            .centerCol {vertical-align: top; width: 65%; padding-right: 12px; border: 1px solid blue;}
         </style>
     </ui:define>
 
     <ui:define name="body">
-        <!--<h:form styleClass="home">-->
+        <h:form styleClass="home">
+            <ui:include src="/homepage/include/welcome.xhtml" />
+
             <div style="background-color: white; position: relative; top: -25px;
 			    margin: 0 -30px; padding: 10px 30px; border-top: 1px solid #94A8C2;">
-                TEST
-                <br/>
-                <h2>JSF 2 example on JBoss 7</h2>
-                <div>
-                    <h:form id="jsfexample">
-                        <h:panelGrid columns="2" styleClass="default">
 
-                            <h:outputText value="Enter key:"/>
+                <h:panelGrid cellpadding="0" cellspacing="0" columns="2" width="100%" columnClasses="leftCol, mainCol">
+                    <h:panelGroup>
+                        <div class="leftPanel noMouseover">
+                            LEFT_PANEL (LEFT_COL)
+                            <div style="margin-bottom: 10px;"/>
+                        </div>
+                    </h:panelGroup>
 
-                            <h:outputText value="Enter value:"/>
+                    <h:panelGroup>
+                        RIGHT_PANEL <br/>
+                        <h:panelGrid styleClass="panelGrid" cellpadding="0" cellspacing="0" columns="2" width="100%"
+                                     columnClasses="centerCol, rightCol" >
+                            <s:span>
+                                CENTER_COL 1111111111111111111111111111111222222222222222222222222222333333333333333333333333333 44444444444444444444444444444444555555555555555555555555555555 66666666666666666666666666666666
+                            </s:span>
 
-                            <h:messages/>
-
-
+                            <s:span>
+                                RIGHT_COL 7777777777777777777777777777777 888888888888888888888888888888888888888888888899999999999999999999999
+                            </s:span>
                         </h:panelGrid>
+                    </h:panelGroup>
+                </h:panelGrid>
 
-                    </h:form>
-                </div>
-			</div>
+            </div>
+        </h:form>
+        <ui:remove>
+        <!--<h:form styleClass="home">-->
+            <!--<div style="background-color: white; position: relative; top: -25px;-->
+			    <!--margin: 0 -30px; padding: 10px 30px; border-top: 1px solid #94A8C2;">-->
+                <!--TEST-->
+                <!--<br/>-->
+                <!--<h2>JSF 2 example on JBoss 7</h2>-->
+                <!--<div>-->
+                    <!--<h:form id="jsfexample">-->
+                        <!--<h:panelGrid columns="2" styleClass="default">-->
+
+                            <!--<h:outputText value="Enter key:"/>-->
+
+                            <!--<h:outputText value="Enter value:"/>-->
+
+                            <!--<h:messages/>-->
+
+
+                        <!--</h:panelGrid>-->
+
+                    <!--</h:form>-->
+                <!--</div>-->
+			<!--</div>-->
         <!--</h:form>-->
+        </ui:remove>
     </ui:define>
 </ui:composition>

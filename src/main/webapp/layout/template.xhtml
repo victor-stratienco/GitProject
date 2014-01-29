@@ -44,77 +44,26 @@
 
         <h:body onload="#{onLoadParam}" onkeydown="#{onKeyDownParam}">
 
+            <ui:remove>
+                <!--<ui:include src="simple_blue.xhtml" />-->
+            </ui:remove>
+
+            <div id="header">
+                <ui:include src="template_header.xhtml" />
+            </div>
+
             <div id="container">
-                <ui:remove>
-                <!--<span style="position: absolute; top: 0; left: 5px;">-->
-                    <!--<s:link	view="/home.xhtml" propagation="none">-->
-                        <!--<h:graphicImage library="img" name="tcp_logo.png" />-->
-                    <!--</s:link>-->
-                <!--</span>-->
-
-                <!--<ui:include src="menu.xhtml" layout="block" />-->
-
-                <!--<ui:include src="breadcrumb.xhtml" rendered="#{conversation.nested}" />-->
-
-                    <!--image="#{resource['img:bookmark_icon.png']}"-->
-                </ui:remove>
-
-                <ui:include src="simple_blue.xhtml" />
-
                 <div id="body">
-                    <ui:remove>
-                    <!--<a:outputPanel id="systemAlert">-->
-                        <!--<s:div rendered="#{alertPage.active}"-->
-                               <!--style="color: rgb(192, 0, 0); font-size: 14px;">-->
-                            <!--<p style="margin-top: 0;">#{alertPage.message}</p>-->
-                        <!--</s:div>-->
-                    <!--</a:outputPanel>-->
-                    <!--<a:outputPanel id="statusPanel" ajaxRendered="true">-->
-                        <!--<div class="messages">-->
-                            <!--<h:messages id="messages" globalOnly="true" styleClass="message"-->
-                                        <!--errorClass="errormsg" infoClass="infomsg" warnClass="warnmsg"-->
-                                        <!--rendered="#{showGlobalMessages != 'false'}" />-->
-                        <!--</div>-->
-                        <!--<a:status name="ajaxProgress" layout="inline" startStyleClass="start"-->
-                                  <!--startText="Processing"/>-->
-                    <!--</a:outputPanel>-->
-                    </ui:remove>
+                    <ui:include src="template_body.xhtml" />
 
                     <ui:insert name="body" />
                 </div>
             </div>
 
-            <div id="footer" style="padding-bottom: 0px">
-                <!-- style="padding-bottom: 60px -->
-                <p>
-                    <a href="http://localhost:8080/">GitProject</a>
-                    <h:outputText value=" | " />
-                    <s:link value="Contact List" view="/contactList.xhtml" />
-                    <h:outputText value=" | " />
-                    <s:link value="Bug Report" view="/bugReport.xhtml" />
-                </p>
-
-                <p>
-                    GitProject - Version MAJOR_VERSION.MINOR_VERSION - Build #BUILD_NUMBER
-                    <s:fragment rendered="#{init.debug}">
-                        Branch: <i>BRANCH_NAME</i>
-                    </s:fragment>
-                </p>
-
-                <s:fragment rendered="#{init.debug}">
-                    <a:log mode="popup" hotkey="D" />
-                    <p style="margin-top: -1.0em; margin-bottom: 0;">
-                        Ajax4jsf Log (Ctrl+Shift+D)
-                        #{' - '}
-                        <s:link id="debugConsole" view="/debug.xhtml" value="Debug console"
-                                target="debugConsole" />
-                        #{' - '}
-                        <s:link id="resetSession" view="/home.xhtml"
-                                action="#{org.jboss.seam.web.session.invalidate()}"
-                                propagation="none" value="Terminate session" />
-                    </p>
-                </s:fragment>
+            <div id="footer" style="padding-bottom: 60px">
+                <ui:include src="template_footer.xhtml" />
             </div>
+
         </h:body>
     </html>
 </f:view>
